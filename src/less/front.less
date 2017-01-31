@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@import "../../node_modules/ChuckCSS/chuckcss/front";
+
+@imgPath : '../../images';
+
+
+body {
+	padding:100px;
+	background-image:url('@{imgPath}/bg.jpg');
+	._cover;
+
+	[v-cloak] {
+		display:none
+	}
+
+	#app {
+		background-color:white;
+		padding: 30px;
+
+		h1 {
+			padding: 20px 0 30px;
+		}
+
+		table {
+			span {
+				display: block;
+				._truncate(300px);
+			}
+
+			a {
+				color:@primary;
+				text-decoration:underline;
+			}
+		}
+	}
+
+}
