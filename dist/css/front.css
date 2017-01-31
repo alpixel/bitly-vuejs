@@ -6916,15 +6916,25 @@ body #app {
   padding: 30px;
 }
 body #app h1 {
-  padding: 20px 0 15px;
+  padding: 0;
 }
-body #app h1 + p {
+body #app p {
   color: #bbb;
   font-style: italic;
+  padding: 20px 0;
 }
-body #app h1 + p iframe {
+body #app p.last {
+  font-size: 1.2rem;
+  padding-bottom: 0;
+}
+body #app p iframe {
   vertical-align: middle;
   display: inline-block;
+}
+body #app p a {
+  color: #29b7e1;
+  display: inline-block;
+  border-bottom: 1px dashed #29b7e1;
 }
 body #app form {
   padding: 30px 0;

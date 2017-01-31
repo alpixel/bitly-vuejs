@@ -18,16 +18,28 @@ body {
 		padding: 30px;
 
 		h1 {
-			padding: 20px 0 15px;
+			padding: 0;
+		} 
 
-			& + p {
-				color:#bbb;
-				font-style: italic;
+		p {
+			color:#bbb;
+			font-style: italic;
+			padding: 20px 0;
 
-				iframe {
-					vertical-align: middle;
-					display:inline-block;
-				}
+			&.last {
+				font-size: 1.2rem;
+				padding-bottom: 0
+			}
+
+			iframe {
+				vertical-align: middle;
+				display:inline-block;
+			}
+
+			a {
+				color:@primary;
+				display: inline-block;
+				border-bottom: 1px dashed @primary
 			}
 		}
 

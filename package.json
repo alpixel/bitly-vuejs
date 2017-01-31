@@ -1,27 +1,22 @@
 {
-  "name": "alpixel-project",
+  "name": "vuejs-bitly",
   "version": "1.0.0",
-  "description": "Starter Kit for a new project",
+  "description": "Shorten URLs with VueJS and Bitly API",
   "author": "Mickael SURREL <ALPIXEL>",
   "license": "MIT",
   "dependencies": {
     "ChuckCSS": "^3",
     "vue": "^2.1.0",
-    "font-awesome": "4.*",
-    "ionicons": "2.*",
-    "jquery": "~2.2.0"
+    "axios": "^0.15.3"
   },
   "devDependencies": {
     "autoprefixer": "^3.1.0",
-    "cssuseragent": "^2.1.31",
-    "fastclick": "^1.0.6",
     "gifsicle": "^3.0.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "3.1.0",
     "gulp-cache": "^0.4.5",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.1",
-    "gulp-imagemin": "^3.1.1",
     "gulp-less": "^3.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "7.0.0",
@@ -29,17 +24,12 @@
     "gulp-shell": "^0.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.3.5",
-    "jquery.backstretch": "^2.1.15",
-    "wowjs": "^1.1.3"
+    "gulp-watch": "^4.3.5"
   },
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.alpixel.fr:7999/~mickael/project.git"
+    "url": "https://github.com/alpixel/bitly-vuejs.git"
   },
   "keywords": []
 }

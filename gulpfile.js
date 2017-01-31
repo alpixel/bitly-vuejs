@@ -9,8 +9,6 @@ var uglify = require('gulp-uglify');
 var gutil = require('gulp-util');
 var rewriteCSS = require('gulp-rewrite-css');
 var autoprefixer = require('gulp-autoprefixer');
-var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
 
 
 
@@ -18,33 +16,11 @@ var npm_folder = './node_modules';
 
 var vars = {
     lib_js: [
-        // God exists
-        npm_folder+'/jquery/dist/jquery.js',
-
-        // WOW.js
-        npm_folder+'/wowjs/dist/wow.js',
-
-        // FastClick
-        npm_folder+'/fastclick/lib/fastclick.js',
-
-        // ChuckCSS
-        npm_folder+'/ChuckCSS/dist/chuckcss.js',
-
-        // CSSUA
-        npm_folder+'/cssuseragent/cssua.js',
-
-        // Backstretch
-        npm_folder+'/jquery.backstretch/jquery.backstretch.js',
-
         // Vue.js
-        npm_folder+'/vue/dist/vue.js'
-    ],
-    lib_fonts: [
-        // FontAwesome
-        npm_folder+'/font-awesome/fonts/**/*',
+        npm_folder+'/vue/dist/vue.js',
 
-        // Ionicons
-        npm_folder+'/ionicons/fonts/**/*'
+        // Axios
+        npm_folder+'/axios/dist/axios.js'
     ]
 };
 
@@ -90,7 +66,7 @@ gulp.task('npm_js', function() {
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/js/'));
 });
-// Create a minify .min.js file compiled from the `src\js\global.js` file
+// Create a minify .min.js file compiled from the `src\js\*.js` files
 gulp.task('app_js', function() {
     return gulp.src('src/js/**/*.js')
         .pipe(concat('global.js'))
@@ -99,30 +75,6 @@ gulp.task('app_js', function() {
         .pipe(gulp.dest('dist/js/'));
 });
 
-
-/*
-    * IMAGEMIN
-*/
-// Images optimization from the `images` folder
-gulp.task('imagemin', function(){
-  return gulp.src('images/**/*.+(png|jpg|jpeg|gif|svg)')
-  .pipe(cache(imagemin({
-      interlaced: true
-    })))
-  .pipe(gulp.dest('images'))
-});
-
-
-
-
-/*
-    * FONTS
-*/
-// Import icons fonts from the `node_modules` folder
-gulp.task('fonts', function() {
-  return gulp.src(vars.lib_fonts)
-  .pipe(gulp.dest('dist/fonts'))
-});
 
 
 
@@ -138,7 +90,5 @@ gulp.task('default', [
   'front',
   'minify_front',
   'app_js',
-  'npm_js',
-  //'imagemin',
-  'fonts'
+  'npm_js'
 ]);
