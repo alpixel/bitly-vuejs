@@ -1,4 +1,3 @@
-const WAITING_TEXT = 'Shorten url here...';
 const BITLY_URL = 'https://api-ssl.bitly.com/v3/shorten?';
 const BITLY_LOGIN = "o_4nm0b7lfsb";
 const BITLY_KEY = "R_3acba2a6f39844c2adb685084688f6bd";
@@ -7,6 +6,8 @@ const BITLY_KEY = "R_3acba2a6f39844c2adb685084688f6bd";
 var urlsStorage = {
 	// Parse localStorage with saved urls
 	fetch: function() {
+
+		// get localStorage datas
 		var localUrl = JSON.parse(localStorage.getItem('longUrl') || '[]');
 
 		// For each url stored in the localStorage
@@ -23,7 +24,6 @@ var urlsStorage = {
 	save: function (taburl) {
 	    localStorage.setItem('longUrl', JSON.stringify(taburl))
 	}
-
 }
 
 var app = new Vue({
@@ -35,25 +35,22 @@ var app = new Vue({
 		// Result of the cropped URL
 		shortenUrl : '',
 
-		// Url shown on the 'copy disabled input'
-		copyUrl : WAITING_TEXT,
-
 		// Error control
 		errorInput : false,
 
-		// Tab with all saved URL
-		taburl : urlsStorage.fetch()
+		// Array with all saved URL
+		taburl : urlsStorage.fetch(),
+
+		isLoading : false
 	},
 	methods: {
 		// Method who control input and call others methods
 		controlDatas : function() {
 
-			// Show waiting text into the result input
-			this.copyUrl = WAITING_TEXT;
-
 			// Is longUrl is not empty
 			if(this.longUrl != '' && checkUrl(this.longUrl)) {
 
+				this.isLoading = true;
 
 				// Call addUrl method
 				this.cropUrl();
@@ -70,19 +67,21 @@ var app = new Vue({
 		// Add the new url into results table
 		addUrl : function() {
 
-			this.copyUrl = this.shortenUrl;
-
 			// Push the new cropped url into the results table
 			this.taburl.push({
 				url : this.longUrl,
 				shortenUrl : this.shortenUrl
 			});
 
+			// Save urls into localStorage
 			urlsStorage.save(this.taburl);
 
 			// Reset main input
 			this.longUrl = '';
 			this.shortenUrl = '';
+
+			// Set isLoading to false
+			this.isLoading = false;
 		},
 
 		// Crop URL with tinyurl API
@@ -112,12 +111,24 @@ var app = new Vue({
 			})
 			.catch(function (error) {
 				console.log('Error! ' + error);
+				
+				// Set isLoading to false
+				this.isLoading = false;
 			});
 		},
 
-		// Clear 'copy result input' + set longUrl to default value
+		// Delete a urls from the table
+		deleteUrl : function(index) {
+
+			// Delete this url from the array
+			this.taburl.splice(index,1);
+
+			// Save urls into localStorage
+			urlsStorage.save(this.taburl);
+		},
+
+		// Reset form
 		clearInput : function(){
-			this.copyUrl = WAITING_TEXT;
 			this.longUrl = '';
 			this.errorInput = false;
 		}

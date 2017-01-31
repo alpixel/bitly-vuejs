@@ -6916,7 +6916,20 @@ body #app {
   padding: 30px;
 }
 body #app h1 {
-  padding: 20px 0 30px;
+  padding: 20px 0 15px;
+}
+body #app h1 + p {
+  color: #bbb;
+  font-style: italic;
+}
+body #app h1 + p iframe {
+  vertical-align: middle;
+  display: inline-block;
+}
+body #app form {
+  padding: 30px 0;
+  border: 3px dashed #CECECE;
+  border-width: 3px 0;
 }
 body #app table span {
   display: block;
