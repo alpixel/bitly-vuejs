@@ -10,3 +10,4 @@ Code copyright 2016 Mickaël SURREL for [ALPIXEL].
 
 
 [Here the demo]: <https://alpixel.github.io/bitly-vuejs/>
+[ALPIXEL] : <https://github.com/alpixel>
