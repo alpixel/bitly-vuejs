@@ -5,7 +5,7 @@
 
 
 body {
-	padding:100px;
+	padding:20px;
 	background-image:url('@{imgPath}/bg.jpg');
 	._cover;
 
@@ -15,11 +15,11 @@ body {
 
 	#app {
 		background-color:white;
-		padding: 30px;
+		padding: 15px;
 
 		h1 {
 			padding: 0;
-		} 
+		}
 
 		p {
 			color:#bbb;
@@ -60,5 +60,45 @@ body {
 				text-decoration:underline;
 			}
 		}
+
+        .wrap-table {
+            position:relative;
+
+            .table-help {
+                position:absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                background-color:rgba(0,0,0,0.7);
+                z-index: 12;
+
+                &.hideme {
+                    display:none;
+                }
+
+                i {
+                    display:block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -26px;
+                    margin-left: -13px;
+                    color:white;
+                    font-size: 3.5rem;
+
+                    &:before {
+                        ._reset;
+                    }
+                }
+            }
+        }
 	}
+
+    ._media-s-up({
+        padding: 100px;
+
+        #app {
+            padding: 30px;
+        }
+    });
 }

@@ -97,7 +97,7 @@ var app = new Vue({
 			        "longUrl": this.longUrl
 			    }
 		    })
-			.then(function (response) { 
+			.then(function (response) {
 				if(response.status == 200) {
 					// set app vars
 					vm.longUrl = response.data.data.long_url;
@@ -111,7 +111,7 @@ var app = new Vue({
 			})
 			.catch(function (error) {
 				console.log('Error! ' + error);
-				
+
 				// Set isLoading to false
 				this.isLoading = false;
 			});
@@ -128,10 +128,15 @@ var app = new Vue({
 		},
 
 		// Reset form
-		clearInput : function(){
+		clearInput : function() {
 			this.longUrl = '';
 			this.errorInput = false;
-		}
+		},
+
+        // On phone, remove help table when clicked
+        hideHelp : function(el) {
+            this.$refs.helptable.className += ' hideme';
+        }
 	}
 });
 

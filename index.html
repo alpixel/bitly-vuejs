@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">   
+<html lang="en">
     <head>
         <title>My VueJS shortener URL</title>
         <meta name="description" content="A Shorten URLs application, made with VueJS, Bitly API and ChuckCSS" />
@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="author" content="Mickaël SURREL, ALPIXEL agency">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="screen" />
         <link rel="stylesheet" href="dist/css/front.min.css" type="text/css" media="screen" />
 
         <script>
@@ -20,7 +21,7 @@
 
         </script>
     </head>
-  
+
     <body>
         <div id="app" v-cloak>
             <h1>
@@ -32,7 +33,7 @@
             <form>
                 <div class="form-item cc-chained" :class="{'error' : errorInput}">
                     <label>Url to crop :</label>
-                    <input class="cc-w-50" ref="urlToCrop" v-model="longUrl" placeholder="Paste long url here..." />
+                    <input class="cc-w-50" v-model="longUrl" placeholder="Paste long url here..." />
                     <button type="submit" @click.prevent="controlDatas" :class="{'cc-loading' : isLoading}">Crop</button>
                     <a href="#" class="btn cc-bg-red cc-mal-10 cc-thin" @click.prevent="clearInput">Clear</a>
                 </div>
@@ -40,35 +41,41 @@
 
             <div class="cc-mat-30" v-show="taburl.length > 0">
                 <h2>My shorten URL</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Long URL</th>
-                            <th>Shorten URL</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Long URL</th>
-                            <th>Shorten URL</th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr v-for="(url,index) in taburl">
-                            <td>
-                                <span>{{url.url}}</span>
-                            </td>
-                            <td>
-                                <a :href="url.shortenUrl" target="_blank">{{url.shortenUrl}}</a>
-                            </td>
-                            <td>
-                                <button class="cc-bg-red cc-thin" @click.prevent="deleteUrl(index)">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <div class="wrap-table">
+                    <div class="table-help cc-hidden-m" ref="helptable" @click.prevent="hideHelp">
+                        <i class="ion-arrow-swap"></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Long URL</th>
+                                <th>Shorten URL</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Long URL</th>
+                                <th>Shorten URL</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr v-for="(url,index) in taburl">
+                                <td>
+                                    <span>{{url.url}}</span>
+                                </td>
+                                <td>
+                                    <a :href="url.shortenUrl" target="_blank">{{url.shortenUrl}}</a>
+                                </td>
+                                <td>
+                                    <button class="cc-bg-red cc-thin" @click.prevent="deleteUrl(index)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <p class="last">

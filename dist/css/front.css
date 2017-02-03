@@ -6896,7 +6896,7 @@ span.badge[class*="ion-"]:before {
   width: 100%;
 }
 body {
-  padding: 100px;
+  padding: 20px;
   background-image: url('../../images/bg.jpg');
   background-size: cover;
   /* Standard */
@@ -6913,7 +6913,7 @@ body [v-cloak] {
 }
 body #app {
   background-color: white;
-  padding: 30px;
+  padding: 15px;
 }
 body #app h1 {
   padding: 0;
@@ -6951,4 +6951,41 @@ body #app table span {
 body #app table a {
   color: #29b7e1;
   text-decoration: underline;
+}
+body #app .wrap-table {
+  position: relative;
+}
+body #app .wrap-table .table-help {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 12;
+}
+body #app .wrap-table .table-help.hideme {
+  display: none;
+}
+body #app .wrap-table .table-help i {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -26px;
+  margin-left: -13px;
+  color: white;
+  font-size: 3.5rem;
+}
+body #app .wrap-table .table-help i:before {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+@media screen and (min-width: 768px) {
+  body {
+    padding: 100px;
+  }
+  body #app {
+    padding: 30px;
+  }
 }
