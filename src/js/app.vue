@@ -49,9 +49,10 @@
 			// For each url stored in the localStorage
 		    localUrl.forEach(function (url, index) {
 		      url.longUrl = index;
+		      url.uid = url.uid;
 		    });
 
-		    localUrl.uid = localUrl.length;
+		    //localUrl.uid = localUrl.length;
 
 		    return localUrl
 		},
@@ -68,7 +69,7 @@
 	}
 
 	// Import component
-	import tableUrls from './table-urls.vue'
+	import tableUrls from './components/table-urls.vue'
 
 	export default {
 		name: 'vuejs-app',
@@ -115,6 +116,7 @@
 
 				// Push the new cropped url into the results table
 				this.taburl.push({
+					uid : this.taburl.length,
 					url : this.longUrl,
 					shortenUrl : this.shortenUrl
 				});
