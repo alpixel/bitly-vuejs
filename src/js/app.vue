@@ -4,7 +4,8 @@
             Shorten URLs with VueJS & Bitly API
         </h1>
         <p class="intro cc-pab-20">
-            A simple VueJS app to shorten urls, using bitly API. If you like, you can <a class="github-button" href="https://github.com/alpixel/bitly-vuejs/fork" data-icon="octicon-repo-forked" aria-label="Fork alpixel/bitly-vuejs on GitHub">Fork</a> or <a class="github-button" href="https://github.com/alpixel/bitly-vuejs" data-icon="octicon-star" aria-label="Star alpixel/bitly-vuejs on GitHub">Star</a> it on GitHub :)
+            A simple VueJS app to shorten urls, using bitly API. If you like, you can <a class="github-button" href="https://github.com/alpixel/bitly-vuejs/fork" data-icon="octicon-repo-forked" aria-label="Fork alpixel/bitly-vuejs on GitHub">Fork</a> or <a class="github-button" href="https://github.com/alpixel/bitly-vuejs" data-icon="octicon-star" aria-label="Star alpixel/bitly-vuejs on GitHub">Star</a> it on GitHub :)<br />
+            Urls are saved into <strong>your local storage.</strong>
         </p>
         <form>
             <div class="form-item cc-chained" :class="{'error' : errorInput}">

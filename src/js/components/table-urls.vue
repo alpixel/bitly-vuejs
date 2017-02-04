@@ -2,7 +2,6 @@
 	<table>
         <thead>
             <tr>
-                <th>#</th>
                 <th>Long URL</th>
                 <th>Shorten URL</th>
                 <th></th>
@@ -10,7 +9,6 @@
         </thead>
         <tfoot>
             <tr>
-                <th>#</th>
                 <th>Long URL</th>
                 <th>Shorten URL</th>
                 <th></th>
@@ -18,9 +16,6 @@
         </tfoot>
         <tbody>
             <tr v-for="(url,index) in taburl">
-                <td>
-                    {{url.uid}}
-                </td>
                 <td>
                     <span>{{url.url}}</span>
                 </td>
