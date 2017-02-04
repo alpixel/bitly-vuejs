@@ -10,6 +10,12 @@ var gutil = require('gulp-util');
 var rewriteCSS = require('gulp-rewrite-css');
 var autoprefixer = require('gulp-autoprefixer');
 
+// Vueify
+var fs = require("fs")
+var browserify = require('browserify')
+var vueify = require('vueify')
+
+
 
 
 var npm_folder = './node_modules';
@@ -68,11 +74,15 @@ gulp.task('npm_js', function() {
 });
 // Create a minify .min.js file compiled from the `src\js\*.js` files
 gulp.task('app_js', function() {
-    return gulp.src('src/js/**/*.js')
-        .pipe(concat('global.js'))
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dist/js/'));
+    // return gulp.src('src/js/**/*.js')
+    //     .pipe(concat('global.js'))
+    //     .pipe(uglify())
+    //     .pipe(rename({suffix: '.min'}))
+    //     .pipe(gulp.dest('dist/js/'));
+    return browserify('src/js/main.js')
+        .transform(vueify)
+        .bundle()       
+        .pipe(fs.createWriteStream("dist/js/vueapp.min.js"))
 });
 
 
@@ -84,6 +94,7 @@ gulp.task('app_js', function() {
 gulp.task('watch',['minify_front','front','app_js'],  function() {
     gulp.watch('src/**/*.less', ['minify_front', 'front']);
     gulp.watch('src/js/**/*.js', ['app_js']); 
+    gulp.watch('src/js/**/*.vue', ['app_js']);
 });
 
 gulp.task('default', [

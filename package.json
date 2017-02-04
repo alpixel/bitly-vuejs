@@ -11,6 +11,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^3.1.0",
+    "babel-core": "^6.22.1",
+    "babel-preset-es2015": "^6.22.0",
+    "browserify": "^14.0.0",
     "gifsicle": "^3.0.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "3.1.0",
@@ -24,7 +27,8 @@
     "gulp-shell": "^0.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "vueify": "^9.4.0"
   },
   "main": "gulpfile.js",
   "repository": {

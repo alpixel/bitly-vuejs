@@ -6911,51 +6911,51 @@ body {
 body [v-cloak] {
   display: none;
 }
-body #app {
+body .contain-app {
   background-color: white;
   padding: 15px;
 }
-body #app h1 {
+body .contain-app h1 {
   padding: 0;
 }
-body #app p {
+body .contain-app p {
   color: #bbb;
   font-style: italic;
   padding: 20px 0;
 }
-body #app p.last {
+body .contain-app p.last {
   font-size: 1.2rem;
   padding-bottom: 0;
 }
-body #app p iframe {
+body .contain-app p iframe {
   vertical-align: middle;
   display: inline-block;
 }
-body #app p a {
+body .contain-app p a {
   color: #29b7e1;
   display: inline-block;
   border-bottom: 1px dashed #29b7e1;
 }
-body #app form {
+body .contain-app form {
   padding: 30px 0;
   border: 3px dashed #CECECE;
   border-width: 3px 0;
 }
-body #app table span {
+body .contain-app table span {
   display: block;
   width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-body #app table a {
+body .contain-app table a {
   color: #29b7e1;
   text-decoration: underline;
 }
-body #app .wrap-table {
+body .contain-app .wrap-table {
   position: relative;
 }
-body #app .wrap-table .table-help {
+body .contain-app .wrap-table .table-help {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6963,10 +6963,10 @@ body #app .wrap-table .table-help {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 12;
 }
-body #app .wrap-table .table-help.hideme {
+body .contain-app .wrap-table .table-help.hideme {
   display: none;
 }
-body #app .wrap-table .table-help i {
+body .contain-app .wrap-table .table-help i {
   display: block;
   position: absolute;
   top: 50%;
@@ -6976,7 +6976,7 @@ body #app .wrap-table .table-help i {
   color: white;
   font-size: 3.5rem;
 }
-body #app .wrap-table .table-help i:before {
+body .contain-app .wrap-table .table-help i:before {
   padding: 0;
   margin: 0;
   border: 0;
@@ -6985,7 +6985,7 @@ body #app .wrap-table .table-help i:before {
   body {
     padding: 100px;
   }
-  body #app {
+  body .contain-app {
     padding: 30px;
   }
 }

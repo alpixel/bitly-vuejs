@@ -23,74 +23,10 @@
     </head>
 
     <body>
-        <div id="app" v-cloak>
-            <h1>
-                Shorten URLs with VueJS & Bitly API
-            </h1>
-            <p class="intro cc-pab-20">
-                A simple VueJS app for to shorten urls, with bitly API. If you like it, you can <a class="github-button" href="https://github.com/alpixel/bitly-vuejs/fork" data-icon="octicon-repo-forked" aria-label="Fork alpixel/bitly-vuejs on GitHub">Fork</a> it, or <a class="github-button" href="https://github.com/alpixel/bitly-vuejs" data-icon="octicon-star" aria-label="Star alpixel/bitly-vuejs on GitHub">Star</a> it on GitHub :)
-            </p>
-            <form>
-                <div class="form-item cc-chained" :class="{'error' : errorInput}">
-                    <label>Url to crop :</label>
-                    <input class="cc-w-50" v-model="longUrl" placeholder="Paste long url here..." />
-                    <button type="submit" @click.prevent="controlDatas" :class="{'cc-loading' : isLoading}">Crop</button>
-                    <a href="#" class="btn cc-bg-red cc-mal-10 cc-thin" @click.prevent="clearInput">Clear</a>
-                </div>
-            </form>
+      <div id="app" v-cloak></div>
 
-            <div class="cc-mat-30" v-show="taburl.length > 0">
-                <h2>My shorten URL</h2>
-
-                <div class="wrap-table">
-                    <div class="table-help cc-hidden-m" ref="helptable" @click.prevent="hideHelp">
-                        <i class="ion-arrow-swap"></i>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Long URL</th>
-                                <th>Shorten URL</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Long URL</th>
-                                <th>Shorten URL</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr v-for="(url,index) in taburl">
-                                <td>
-                                    <span>{{url.url}}</span>
-                                </td>
-                                <td>
-                                    <a :href="url.shortenUrl" target="_blank">{{url.shortenUrl}}</a>
-                                </td>
-                                <td>
-                                    <button class="cc-bg-red cc-thin" @click.prevent="deleteUrl(index)">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <p class="last">
-                Build with <a href="https://dev.bitly.com/" target="_blank">Bitly API</a>, <a href="https://vuejs.org/" target="_blank">VueJS</a> and <a href="http://chuckcss.io/" target="_blank">ChuckCSS</a>
-            </p>
-
-            <!-- <div>
-                <pre>
-                    {{$data}}
-                </pre>
-            </div> -->
-        </div>
-
-    	<script src="dist/js/app.min.js"></script>
-        <script src="dist/js/global.min.js"></script>
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-    </body>
+      <script src="dist/js/app.min.js"></script>
+      <script src="dist/js/vueapp.min.js"></script>
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+      </body>
 </html>
